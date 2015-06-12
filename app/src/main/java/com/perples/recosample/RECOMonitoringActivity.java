@@ -120,6 +120,26 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 
 		mMonitoringListAdapter.updateRegion(recoRegion, RECOBeaconRegionState.RECOBeaconRegionInside, beacons.size(), new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA).format(new Date()));
 		mMonitoringListAdapter.notifyDataSetChanged();
+
+        if(recoRegion.getUniqueIdentifier() == "D325 b1") {
+            Toast.makeText(this, "find b1", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(recoRegion.getUniqueIdentifier() == "D325 b2") {
+            Toast.makeText(this, "find b2", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(recoRegion.getUniqueIdentifier() == "D325 b3") {
+            Toast.makeText(this, "find b3", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(recoRegion.getUniqueIdentifier() == "D325 b4") {
+            Toast.makeText(this, "find b4", Toast.LENGTH_SHORT).show();
+        }
+
+        else {
+            Toast.makeText(this, "find b5", Toast.LENGTH_SHORT).show();
+        }
 	}
 
 	@Override
@@ -135,6 +155,26 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 
 		mMonitoringListAdapter.updateRegion(recoRegion, RECOBeaconRegionState.RECOBeaconRegionOutside, 0, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA).format(new Date()));
 		mMonitoringListAdapter.notifyDataSetChanged();
+
+        if(recoRegion.getUniqueIdentifier() == "D325 b1") {
+            Toast.makeText(this, "exit b1", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(recoRegion.getUniqueIdentifier() == "D325 b2") {
+            Toast.makeText(this, "exit b2", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(recoRegion.getUniqueIdentifier() == "D325 b3") {
+            Toast.makeText(this, "exit b3", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(recoRegion.getUniqueIdentifier() == "D325 b4") {
+            Toast.makeText(this, "exit b4", Toast.LENGTH_SHORT).show();
+        }
+
+        else {
+            Toast.makeText(this, "exit b5", Toast.LENGTH_SHORT).show();
+        }
 		//Write the code when the device is exit the region
 	}
 

@@ -2,25 +2,25 @@
 <items version="2" >
 
     <item
-        jar="F:\project\samplesy\app\libs\reco-sdk-android_0.2.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e3108c970f3040c055bf91cf54f51fef79402824">
-        <dex dex="F:\project\samplesy\app\build\intermediates\pre-dexed\debug\reco-sdk-android_0.2.2-27a6fcb0096236d54b1f2350c3d9f9f2d5b2ffa7.jar" />
-    </item>
-    <item
-        jar="F:\project\samplesy\app\libs\reco-sdk-android_0.2.2_JavaDoc.jar"
+        jar="F:\까마귀\samplesy\app\libs\reco-sdk-android_0.2.2_JavaDoc.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="d46333c41bd8108150de69ed3d49728bcf2d96ed">
-        <dex dex="F:\project\samplesy\app\build\intermediates\pre-dexed\debug\reco-sdk-android_0.2.2_JavaDoc-139a231820992de87bbf05d425b5b8f0a6844d18.jar" />
+        <dex dex="F:\까마귀\samplesy\app\build\intermediates\pre-dexed\debug\reco-sdk-android_0.2.2_JavaDoc-fdce251a8769ca581602ef2f226f45760eb8f7f6.jar" />
     </item>
     <item
-        jar="F:\project\samplesy\app\libs\android-support-v4.jar"
+        jar="F:\까마귀\samplesy\app\libs\android-support-v4.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="efec67655f6db90757faa37201efcee2a9ec3507">
-        <dex dex="F:\project\samplesy\app\build\intermediates\pre-dexed\debug\android-support-v4-9fe8df6f819b787a0494171b1ea64548d1520069.jar" />
+        <dex dex="F:\까마귀\samplesy\app\build\intermediates\pre-dexed\debug\android-support-v4-c8b652eeb7e52d84982a47b23f411189af5c3ee9.jar" />
+    </item>
+    <item
+        jar="F:\까마귀\samplesy\app\libs\reco-sdk-android_0.2.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e3108c970f3040c055bf91cf54f51fef79402824">
+        <dex dex="F:\까마귀\samplesy\app\build\intermediates\pre-dexed\debug\reco-sdk-android_0.2.2-fb9af1766481316cad4c070193a58f4724e5671c.jar" />
     </item>
 
 </items>

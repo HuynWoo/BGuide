@@ -118,27 +118,6 @@ public class RECOMonitoringListAdapter extends BaseAdapter {
 		viewHolder.recoRegionTime.setText(recoUpdateTime);
 		viewHolder.recoRegionBeaconCount.setText("# of beacons in the region: " + recoBeaconCount);
 
-        /*if(recoRegionUniqueID == "D325 b1") {
-            Toast.makeText(mcontext.getApplicationContext(), "find b1", Toast.LENGTH_SHORT).show();
-        }
-
-        else if(recoRegionUniqueID == "D325 b2") {
-            Toast.makeText(mcontext.getApplicationContext(), "find b2", Toast.LENGTH_SHORT).show();
-        }
-
-        else if(recoRegionUniqueID == "D325 b3") {
-            Toast.makeText(mcontext.getApplicationContext(), "find b3", Toast.LENGTH_SHORT).show();
-        }
-
-        else if(recoRegionUniqueID == "D325 b4") {
-            Toast.makeText(mcontext.getApplicationContext(), "find b4", Toast.LENGTH_SHORT).show();
-        }
-
-        else {
-            Toast.makeText(mcontext.getApplicationContext(), "find b5", Toast.LENGTH_SHORT).show();
-        } */
-
-		
 		return convertView;
 	}
 	

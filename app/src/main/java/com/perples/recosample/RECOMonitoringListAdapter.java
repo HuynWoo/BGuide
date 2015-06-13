@@ -29,8 +29,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.perples.recosdk.RECOBeacon;
 import com.perples.recosdk.RECOBeaconRegion;
 import com.perples.recosdk.RECOBeaconRegionState;
 
@@ -48,6 +48,8 @@ public class RECOMonitoringListAdapter extends BaseAdapter {
     String recoUpdateTime;
     String recoBeaconCount;
 
+    //private RECORangingListAdapter mRangingListAdapter;
+    private ArrayList<RECOBeacon> mRangedBeacons;
     private LayoutInflater mLayoutInflater;
 	
 	public RECOMonitoringListAdapter(Context context) {
@@ -107,6 +109,8 @@ public class RECOMonitoringListAdapter extends BaseAdapter {
 		
 		RECOBeaconRegion recoRegion = mMonitoredRegionLists.get(position);
 		RECOBeaconRegionState recoState = mMonitoredRegions.get(recoRegion);
+
+        RECOBeacon recoBeacon = mRangedBeacons.get(position);
 		
 		recoRegionUniqueID = recoRegion.getUniqueIdentifier();
 		recoRegionState = recoState.toString();
@@ -117,6 +121,7 @@ public class RECOMonitoringListAdapter extends BaseAdapter {
 		viewHolder.recoRegionState.setText(recoRegionState);
 		viewHolder.recoRegionTime.setText(recoUpdateTime);
 		viewHolder.recoRegionBeaconCount.setText("# of beacons in the region: " + recoBeaconCount);
+        viewHolder.recoAccuracy.setText(String.format("%.2f", recoBeacon.getAccuracy()));
 
 		return convertView;
 	}
@@ -126,5 +131,6 @@ public class RECOMonitoringListAdapter extends BaseAdapter {
 		TextView recoRegionState;
 		TextView recoRegionTime;
 		TextView recoRegionBeaconCount;
+        TextView recoAccuracy;
 	}
 }

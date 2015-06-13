@@ -98,11 +98,6 @@ public class MainActivity extends Activity implements OnInitListener{
 			ToggleButton toggle = (ToggleButton)findViewById(R.id.backgroundMonitoringToggleButton);
 			toggle.setChecked(true);
 		}
-		
-		if(this.isBackgroundRangingServiceRunning(this)) {
-			ToggleButton toggle = (ToggleButton)findViewById(R.id.backgroundRangingToggleButton);
-			toggle.setChecked(true);
-		}
 	}
 	
 	@Override
@@ -123,19 +118,7 @@ public class MainActivity extends Activity implements OnInitListener{
 			stopService(new Intent(this, RECOBackgroundMonitoringService.class));
 		}
 	}
-	
-	public void onRangingToggleButtonClicked(View v) {
-		ToggleButton toggle = (ToggleButton)v;
-		if(toggle.isChecked()) {
-			Log.i("MainActivity", "onRangingToggleButtonClicked off to on");
-			Intent intent = new Intent(this, RECOBackgroundRangingService.class);
-			startService(intent);
-		} else {
-			Log.i("MainActivity", "onRangingToggleButtonClicked on to off");
-			stopService(new Intent(this, RECOBackgroundRangingService.class));
-		}
-	}
-	
+
 	public void onButtonClicked(View v) {
 		Button btn = (Button)v;
 
@@ -143,11 +126,6 @@ public class MainActivity extends Activity implements OnInitListener{
             Toast.makeText(this, "monitoring", Toast.LENGTH_SHORT).show();
 
 			final Intent intent = new Intent(this, RECOMonitoringActivity.class);
-			startActivity(intent);
-		} else {
-            Toast.makeText(this, "ranging", Toast.LENGTH_SHORT).show();
-
-			final Intent intent = new Intent(this, RECORangingActivity.class);
 			startActivity(intent);
 		}
 	}
@@ -161,15 +139,4 @@ public class MainActivity extends Activity implements OnInitListener{
 		}
 		return false;
 	}
-	
-	private boolean isBackgroundRangingServiceRunning(Context context) {
-		ActivityManager am = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
-		for(RunningServiceInfo runningService : am.getRunningServices(Integer.MAX_VALUE)) {
-			if(RECOBackgroundRangingService.class.getName().equals(runningService.service.getClassName())) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 }

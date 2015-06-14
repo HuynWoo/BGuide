@@ -26,10 +26,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AppSplash"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
-
         <activity android:name="com.perples.recosample.RECOMonitoringActivity" />
 
         <service android:name="com.perples.recosdk.RECOBeaconService" />

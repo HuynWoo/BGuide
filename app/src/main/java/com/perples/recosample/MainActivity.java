@@ -10,7 +10,6 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 
@@ -31,7 +30,6 @@ public class MainActivity extends Activity implements OnInitListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(this, AppSplash.class));
 		//If a user device turns off bluetooth, request to turn it on.
 		//사용자가 블루투스를 켜도록 요청합니다.
 		mBluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);

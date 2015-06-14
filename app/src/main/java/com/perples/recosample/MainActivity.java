@@ -1,31 +1,6 @@
-/**
- * The MIT License (MIT)
- * 
- * Copyright (c) 2014-2015 Perples, Inc.
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
 package com.perples.recosample;
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.app.ActivityManager.RunningServiceInfo;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
@@ -46,7 +21,7 @@ public class MainActivity extends Activity implements OnInitListener{
 	public static final String RECO_UUID = "24DDF411-8CF1-440C-87CD-E368DAF9C93E";
 	public static final boolean SCAN_RECO_ONLY = true;
 	public static final boolean ENABLE_BACKGROUND_RANGING_TIMEOUT = true;
-	public static final boolean DISCONTINUOUS_SCAN = true;
+	//public static final boolean DISCONTINUOUS_SCAN = true;
 
 	private static final int REQUEST_ENABLE_BT = 1;
 	
@@ -67,15 +42,14 @@ public class MainActivity extends Activity implements OnInitListener{
 			Intent enableBTIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
 			startActivityForResult(enableBTIntent, REQUEST_ENABLE_BT);
 		}
-        Toast.makeText(this, "시작", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Service Start", Toast.LENGTH_SHORT).show();
 
         myTTS = new TextToSpeech(this, this);
 	}
 
     // TTS 함수
     public void onInit(int status) {
-        myTTS.speak("모바일 소프트웨어 프로젝트", TextToSpeech.QUEUE_FLUSH, null);
-        myTTS.speak("비콘비콘비콘비콘 비콘비 콘", TextToSpeech.QUEUE_ADD, null);
+        myTTS.speak("위치안내 서비스를 시작합니다", TextToSpeech.QUEUE_FLUSH, null);
     }
 
 	@Override
@@ -93,11 +67,6 @@ public class MainActivity extends Activity implements OnInitListener{
 	protected void onResume() {
 		Log.i("MainActivity", "onResume()");
 		super.onResume();
-		
-		if(this.isBackgroundMonitoringServiceRunning(this)) {
-			ToggleButton toggle = (ToggleButton)findViewById(R.id.backgroundMonitoringToggleButton);
-			toggle.setChecked(true);
-		}
 	}
 	
 	@Override
@@ -105,18 +74,6 @@ public class MainActivity extends Activity implements OnInitListener{
 		Log.i("MainActivity", "onDestroy");
 		super.onDestroy();
         myTTS.shutdown();
-	}
-		
-	public void onMonitoringToggleButtonClicked(View v) {
-		ToggleButton toggle = (ToggleButton)v;
-		if(toggle.isChecked()) {
-			Log.i("MainActivity", "onMonitoringToggleButtonClicked off to on");
-			Intent intent = new Intent(this, RECOBackgroundMonitoringService.class);
-			startService(intent);
-		} else {
-			Log.i("MainActivity", "onMonitoringToggleButtonClicked on to off");
-			stopService(new Intent(this, RECOBackgroundMonitoringService.class));
-		}
 	}
 
 	public void onButtonClicked(View v) {
@@ -128,15 +85,5 @@ public class MainActivity extends Activity implements OnInitListener{
 			final Intent intent = new Intent(this, RECOMonitoringActivity.class);
 			startActivity(intent);
 		}
-	}
-	
-	private boolean isBackgroundMonitoringServiceRunning(Context context) {
-		ActivityManager am = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
-		for(RunningServiceInfo runningService : am.getRunningServices(Integer.MAX_VALUE)) {
-			if(RECOBackgroundMonitoringService.class.getName().equals(runningService.service.getClassName())) {
-				return true;
-			}
-		}
-		return false;
 	}
 }

@@ -21,8 +21,6 @@ public class MainActivity extends Activity implements OnInitListener{
 	public static final String RECO_UUID = "24DDF411-8CF1-440C-87CD-E368DAF9C93E";
 	public static final boolean SCAN_RECO_ONLY = true;
 	public static final boolean ENABLE_BACKGROUND_RANGING_TIMEOUT = true;
-	//public static final boolean DISCONTINUOUS_SCAN = true;
-
 	private static final int REQUEST_ENABLE_BT = 1;
 	
 	private BluetoothManager mBluetoothManager;
@@ -31,7 +29,7 @@ public class MainActivity extends Activity implements OnInitListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		//setContentView(R.layout.activity_main);
 		
 		//If a user device turns off bluetooth, request to turn it on.
 		//사용자가 블루투스를 켜도록 요청합니다.
@@ -45,6 +43,10 @@ public class MainActivity extends Activity implements OnInitListener{
         Toast.makeText(this, "Service Start", Toast.LENGTH_SHORT).show();
 
         myTTS = new TextToSpeech(this, this);
+
+        final Intent intent = new Intent(this, RECOMonitoringActivity.class);
+        startActivity(intent);
+
 	}
 
     // TTS 함수
@@ -74,16 +76,5 @@ public class MainActivity extends Activity implements OnInitListener{
 		Log.i("MainActivity", "onDestroy");
 		super.onDestroy();
         myTTS.shutdown();
-	}
-
-	public void onButtonClicked(View v) {
-		Button btn = (Button)v;
-
-		if(btn.getId() == R.id.monitoringButton) {
-            Toast.makeText(this, "monitoring", Toast.LENGTH_SHORT).show();
-
-			final Intent intent = new Intent(this, RECOMonitoringActivity.class);
-			startActivity(intent);
-		}
 	}
 }

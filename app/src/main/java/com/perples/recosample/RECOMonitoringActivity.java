@@ -86,6 +86,7 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 		super.onDestroy();	
 		this.stop(mRegions);
 		this.unbind();
+        myTTS.shutdown();
 	}
 	
 	@Override

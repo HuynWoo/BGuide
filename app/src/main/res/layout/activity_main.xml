@@ -5,13 +5,4 @@
     android:background="#ddffff"
     tools:context="com.perples.recosample.MainActivity" >
 
-    <Button
-        android:id="@+id/monitoringButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:text="@string/start_monitoring" 
-        android:onClick="onButtonClicked"/>
-
 </RelativeLayout>

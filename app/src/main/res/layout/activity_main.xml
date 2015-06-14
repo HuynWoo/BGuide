@@ -2,7 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ddffff"
     tools:context="com.perples.recosample.MainActivity" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/start_screen"
+        android:onClick="onClickStart"/>
 
 </RelativeLayout>

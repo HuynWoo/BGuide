@@ -12,7 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import android.widget.ToggleButton;
+
 
 public class MainActivity extends Activity implements OnInitListener{
 
@@ -29,8 +29,9 @@ public class MainActivity extends Activity implements OnInitListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.activity_main);
-		
+		setContentView(R.layout.activity_main);
+
+        startActivity(new Intent(this, AppSplash.class));
 		//If a user device turns off bluetooth, request to turn it on.
 		//사용자가 블루투스를 켜도록 요청합니다.
 		mBluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
@@ -40,13 +41,10 @@ public class MainActivity extends Activity implements OnInitListener{
 			Intent enableBTIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
 			startActivityForResult(enableBTIntent, REQUEST_ENABLE_BT);
 		}
+
         Toast.makeText(this, "Service Start", Toast.LENGTH_SHORT).show();
 
         myTTS = new TextToSpeech(this, this);
-
-        final Intent intent = new Intent(this, RECOMonitoringActivity.class);
-        startActivity(intent);
-
 	}
 
     // TTS 함수
@@ -77,4 +75,9 @@ public class MainActivity extends Activity implements OnInitListener{
 		super.onDestroy();
         myTTS.shutdown();
 	}
+
+    public void onClickStart(View v) {
+        final Intent intent = new Intent(this, RECOMonitoringActivity.class);
+        startActivity(intent);
+    }
 }

@@ -19,6 +19,7 @@ public class RECOMonitoringListAdapter extends BaseAdapter {
 	private HashMap<RECOBeaconRegion, String> mLastUpdateTime;
 	private HashMap<RECOBeaconRegion, Integer> mMatchedBeaconCounts;
 	private ArrayList<RECOBeaconRegion> mMonitoredRegionLists;
+
     Context mcontext;
     String recoRegionUniqueID;
     String recoRegionState;
@@ -38,6 +39,7 @@ public class RECOMonitoringListAdapter extends BaseAdapter {
 	}
 	
 	public void updateRegion(RECOBeaconRegion recoRegion, RECOBeaconRegionState recoState, int beaconCount, String updateTime) {
+        //비콘 상태 갱신
 		mMonitoredRegions.put(recoRegion, recoState);
 		mLastUpdateTime.put(recoRegion, updateTime);
 		mMatchedBeaconCounts.put(recoRegion, beaconCount);

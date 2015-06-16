@@ -23,11 +23,13 @@
  */
 package com.perples.recosample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -97,6 +99,7 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 
 	@Override
 	public void didDetermineStateForRegion(RECOBeaconRegionState recoRegionState, RECOBeaconRegion recoRegion) {
+        //비콘 신호 지역상태에 변화가 생길때
 		Log.i("RECOMonitoringActivity", "didDetermineStateForRegion()");
 		Log.i("RECOMonitoringActivity", "region: " + recoRegion.getUniqueIdentifier() + ", state: " + recoRegionState.toString());
 
@@ -105,62 +108,65 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 
 	@Override
 	public void didEnterRegion(RECOBeaconRegion recoRegion, Collection<RECOBeacon> beacons) {
+        //비콘 신호범위 내로 진입했을때
 		Log.i("RECOMonitoringActivity", "didEnterRegion() region:" + recoRegion.getUniqueIdentifier());
 
-		mMonitoringListAdapter.updateRegion(recoRegion, RECOBeaconRegionState.RECOBeaconRegionInside, beacons.size(), new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA).format(new Date()));
+		mMonitoringListAdapter.updateRegion(recoRegion, RECOBeaconRegionState.RECOBeaconRegionInside, beacons.size(),
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA).format(new Date()));
 		mMonitoringListAdapter.notifyDataSetChanged();
 
-        if(recoRegion.getUniqueIdentifier().equals("D325 b1")) {
-            Toast.makeText(this, "find b1", Toast.LENGTH_SHORT).show();
-            myTTS.speak("여기는 디지털관 325호 b1 입니다", TextToSpeech.QUEUE_FLUSH, null);
+        if(recoRegion.getUniqueIdentifier().equals("D229")) {
+            Toast.makeText(this, "Enter D229", Toast.LENGTH_SHORT).show();
+            myTTS.speak("여기는 디지털관 229호 강의실입니다", TextToSpeech.QUEUE_ADD, null);
         }
 
-        else if(recoRegion.getUniqueIdentifier().equals("D325 b2")) {
-            Toast.makeText(this, "find b2", Toast.LENGTH_SHORT).show();
-            myTTS.speak("여기는 디지털관 325호 b2 입니다", TextToSpeech.QUEUE_FLUSH, null);
+        else if(recoRegion.getUniqueIdentifier().equals("D230")) {
+            Toast.makeText(this, "Enter D230", Toast.LENGTH_SHORT).show();
+            myTTS.speak("여기는 디지털관 230호 강의실입니다", TextToSpeech.QUEUE_ADD, null);
         }
 
-        else if(recoRegion.getUniqueIdentifier().equals("D325 b3")) {
-            Toast.makeText(this, "find b3", Toast.LENGTH_SHORT).show();
-            myTTS.speak("여기는 디지털관 325호 b3 입니다", TextToSpeech.QUEUE_FLUSH, null);
+        else if(recoRegion.getUniqueIdentifier().equals("D235")) {
+            Toast.makeText(this, "Enter D235", Toast.LENGTH_SHORT).show();
+            myTTS.speak("여기는 디지털관 235호 디지털공학 연구실 입니다", TextToSpeech.QUEUE_ADD, null);
         }
 
-        else if(recoRegion.getUniqueIdentifier().equals("D325 b4")) {
-            Toast.makeText(this, "find b4", Toast.LENGTH_SHORT).show();
-            myTTS.speak("여기는 디지털관 325호 b4 입니다", TextToSpeech.QUEUE_FLUSH, null);
+        else if(recoRegion.getUniqueIdentifier().equals("D324")) {
+            Toast.makeText(this, "Enter D324", Toast.LENGTH_SHORT).show();
+            myTTS.speak("여기는 디지털관 324호 오병우교수님 연구실 입니다", TextToSpeech.QUEUE_ADD, null);
         }
 
         else {
-            Toast.makeText(this, "find b5", Toast.LENGTH_SHORT).show();
-            myTTS.speak("여기는 디지털관 325호 b5 입니다", TextToSpeech.QUEUE_FLUSH, null);
+            Toast.makeText(this, "Enter D325", Toast.LENGTH_SHORT).show();
+            myTTS.speak("여기는 디지털관 325호 모바일소프트웨어 연구실 입니다", TextToSpeech.QUEUE_ADD, null);
         }
 	}
 
 	@Override
 	public void didExitRegion(RECOBeaconRegion recoRegion) {
+        //비콘 신호범위 밖으로 벗어날때
 		Log.i("RECOMonitoringActivity", "didExitRegion() region:" + recoRegion.getUniqueIdentifier());
 
 		mMonitoringListAdapter.updateRegion(recoRegion, RECOBeaconRegionState.RECOBeaconRegionOutside, 0, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA).format(new Date()));
 		mMonitoringListAdapter.notifyDataSetChanged();
 
-        if(recoRegion.getUniqueIdentifier().equals("D325 b1")) {
-            Toast.makeText(this, "exit b1", Toast.LENGTH_SHORT).show();
+        if(recoRegion.getUniqueIdentifier().equals("D229")) {
+            Toast.makeText(this, "Exit D229", Toast.LENGTH_SHORT).show();
         }
 
-        else if(recoRegion.getUniqueIdentifier().equals("D325 b2")) {
-            Toast.makeText(this, "exit b2", Toast.LENGTH_SHORT).show();
+        else if(recoRegion.getUniqueIdentifier().equals("D230")) {
+            Toast.makeText(this, "Exit D230", Toast.LENGTH_SHORT).show();
         }
 
-        else if(recoRegion.getUniqueIdentifier().equals("D325 b3")) {
-            Toast.makeText(this, "exit b3", Toast.LENGTH_SHORT).show();
+        else if(recoRegion.getUniqueIdentifier().equals("D235")) {
+            Toast.makeText(this, "Exit D235", Toast.LENGTH_SHORT).show();
         }
 
-        else if(recoRegion.getUniqueIdentifier().equals("D325 b4")) {
-            Toast.makeText(this, "exit b4", Toast.LENGTH_SHORT).show();
+        else if(recoRegion.getUniqueIdentifier().equals("D324")) {
+            Toast.makeText(this, "Exit D324", Toast.LENGTH_SHORT).show();
         }
 
         else {
-            Toast.makeText(this, "exit b5", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Exit D325", Toast.LENGTH_SHORT).show();
         }
 	}
 
@@ -229,5 +235,6 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 
 		return;
 	}
+
 
 }

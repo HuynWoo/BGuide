@@ -49,14 +49,14 @@ public abstract class RECOActivity extends Activity implements RECOServiceConnec
 		super.onDestroy();
 	}
 	
-	private ArrayList<RECOBeaconRegion> generateBeaconRegion() {
+	private ArrayList<RECOBeaconRegion> generateBeaconRegion() {        //비콘 추가
 		ArrayList<RECOBeaconRegion> regions = new ArrayList<RECOBeaconRegion>();
 
-        regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18241, "D325 b1"));
-        regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18242, "D325 b2"));
-        regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18244, "D325 b3"));
-        regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18248, "D325 b4"));
-        regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18249, "D325 b5"));
+        regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18241, "D229"));
+        regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18242, "D230"));
+        regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18244, "D235"));
+        regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18248, "D324"));
+        regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18249, "D325"));
 
 		return regions;
 	}

@@ -14,11 +14,10 @@ import android.widget.Toast;
 
 
 public class MainActivity extends Activity implements OnInitListener{
-
     private TextToSpeech myTTS;
 	//This is a default proximity uuid of the RECO
 	public static final String RECO_UUID = "24DDF411-8CF1-440C-87CD-E368DAF9C93E";
-	public static final boolean SCAN_RECO_ONLY = true;
+	public static final boolean SCAN_RECO_ONLY = true;      //RECO beacon만 검색
 	public static final boolean ENABLE_BACKGROUND_RANGING_TIMEOUT = true;
 	private static final int REQUEST_ENABLE_BT = 1;
 	

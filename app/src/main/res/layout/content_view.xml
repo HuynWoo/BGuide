@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/region_uniqueID"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Monitoring"
@@ -13,42 +14,17 @@
         android:textColor="#FFFFFF"
         android:background="#4BABD1"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <ImageView
+        android:id="@+id/region_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:src="@drawable/d229"/>
 
     <TextView
-        android:id="@+id/bLocation"
-        android:layout_width="15dp"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:background="#6fe8e8"
-        android:padding="25dp" />
-
-    <TextView android:id="@+id/region_uniqueID"
+        android:id="@+id/region_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:textSize="40dp"/>
-
-    </LinearLayout>
-
-    <TextView android:id="@+id/region_state"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:paddingBottom="10dp" />
-
-    <TextView android:id="@+id/region_update_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:paddingBottom="10dp" />
-
-    <TextView android:id="@+id/region_beacon_count"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:paddingBottom="10dp" />
 
 </LinearLayout>

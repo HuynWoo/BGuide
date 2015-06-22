@@ -88,6 +88,7 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 			public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 				Toast.makeText(RECOMonitoringActivity.this, mMonitoringListAdapter.mMonitoredRegionLists.get(position).getUniqueIdentifier(), Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent(RECOMonitoringActivity.this, ContentActivity.class);
+				intent.putExtra("id", mMonitoringListAdapter.mMonitoredRegionLists.get(position).getUniqueIdentifier());
 				startActivity(intent);
 			}
 		});

@@ -23,13 +23,11 @@
  */
 package com.perples.recosample;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.util.Log;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -183,7 +181,7 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 
 		for(RECOBeaconRegion region : regions) {
 			try {
-				region.setRegionExpirationTimeMillis(60*1000L);     // 60s
+				region.setRegionExpirationTimeMillis(10*1000L);     // 60s
 				mRecoManager.startMonitoringForRegion(region);
 			} catch (RemoteException e) {
 				Log.i("RECOMonitoringActivity", "Remote Exception");

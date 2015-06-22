@@ -23,6 +23,7 @@
  */
 package com.perples.recosample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.speech.tts.TextToSpeech;
@@ -86,6 +87,8 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 				Toast.makeText(RECOMonitoringActivity.this, mMonitoringListAdapter.mMonitoredRegionLists.get(position).getUniqueIdentifier(), Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(RECOMonitoringActivity.this, ContentActivity.class);
+				startActivity(intent);
 			}
 		});
 	}
@@ -97,7 +100,7 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 		this.unbind();
         myTTS.shutdown();
 	}
-	
+
 	@Override
 	public void onServiceConnect() {
 		Log.i("RECOMonitoringActivity", "onServiceConnect");

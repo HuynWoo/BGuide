@@ -11,8 +11,13 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int icon=0x7f020000;
-        public static final int start_screen=0x7f020001;
+        public static final int d229=0x7f020000;
+        public static final int d230=0x7f020001;
+        public static final int d235=0x7f020002;
+        public static final int d324=0x7f020003;
+        public static final int d325=0x7f020004;
+        public static final int icon=0x7f020005;
+        public static final int start_screen=0x7f020006;
     }
     public static final class id {
         public static final int bLocation=0x7f060000;

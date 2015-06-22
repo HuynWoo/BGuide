@@ -27,6 +27,7 @@
         </activity>
 
         <activity android:name="com.perples.recosample.RECOMonitoringActivity" />
+        <activity android:name="com.perples.recosample.ContentActivity" />
 
         <service android:name="com.perples.recosdk.RECOBeaconService" />
     </application>

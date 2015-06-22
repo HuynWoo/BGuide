@@ -181,7 +181,7 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 
 		for(RECOBeaconRegion region : regions) {
 			try {
-				region.setRegionExpirationTimeMillis(10*1000L);     // 60s
+				region.setRegionExpirationTimeMillis(3*1000L);     // 60s
 				mRecoManager.startMonitoringForRegion(region);
 			} catch (RemoteException e) {
 				Log.i("RECOMonitoringActivity", "Remote Exception");

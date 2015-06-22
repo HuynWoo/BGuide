@@ -57,7 +57,7 @@ public abstract class RECOActivity extends Activity implements RECOServiceConnec
 //        regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18244, "D235"));
 		regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18243, "D229"));
 		regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18246, "D230"));
-		regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18760, "D235"));
+		regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19783, 18760, "D235"));
         regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18248, "D324"));
         regions.add(new RECOBeaconRegion(MainActivity.RECO_UUID, 19522, 18249, "D325"));
 

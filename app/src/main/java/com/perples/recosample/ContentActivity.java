@@ -20,15 +20,22 @@ public class ContentActivity extends Activity {
         rId.setText(intent);
 
         ImageView rImg = (ImageView)findViewById(R.id.region_image);
+        ImageView sImg = (ImageView)findViewById(R.id.region_schedule);
 
-        if(intent == "D230")
+        if(intent == "D230") {
             rImg.setImageResource(R.drawable.d230);
-        if(intent == "D235")
+            sImg.setImageResource(R.drawable.s230);
+        }
+        if(intent == "D235") {
             rImg.setImageResource(R.drawable.d235);
-        if(intent == "D324")
+        }
+        if(intent == "D324") {
             rImg.setImageResource(R.drawable.d324);
-        if(intent == "D325")
+            sImg.setImageResource(R.drawable.s324);
+        }
+        if(intent == "D325") {
             rImg.setImageResource(R.drawable.d325);
+        }
 
     }
 }

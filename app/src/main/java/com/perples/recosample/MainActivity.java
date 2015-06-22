@@ -10,7 +10,6 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 
 public class MainActivity extends Activity implements OnInitListener{
@@ -29,7 +28,6 @@ public class MainActivity extends Activity implements OnInitListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		//If a user device turns off bluetooth, request to turn it on.
 		//사용자가 블루투스를 켜도록 요청합니다.
 		mBluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
 		mBluetoothAdapter = mBluetoothManager.getAdapter();
@@ -38,8 +36,6 @@ public class MainActivity extends Activity implements OnInitListener{
 			Intent enableBTIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
 			startActivityForResult(enableBTIntent, REQUEST_ENABLE_BT);
 		}
-
-        Toast.makeText(this, "Service Start", Toast.LENGTH_SHORT).show();
 
         myTTS = new TextToSpeech(this, this);
 	}
@@ -52,10 +48,9 @@ public class MainActivity extends Activity implements OnInitListener{
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == REQUEST_ENABLE_BT && resultCode == Activity.RESULT_CANCELED) {
-			//사용자가 블루투스 요청을 허용하지 않았을 경우, 어플리케이션은 종료됩니다.
 			finish();
 			return;
-		}
+		}				// 블루투스 요청을 허용하지 않았을 경우, 어플리케이션 종료
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 

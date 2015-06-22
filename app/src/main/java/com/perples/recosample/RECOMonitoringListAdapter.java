@@ -18,7 +18,7 @@ public class RECOMonitoringListAdapter extends BaseAdapter {
 	private HashMap<RECOBeaconRegion, RECOBeaconRegionState> mMonitoredRegions;
 	private HashMap<RECOBeaconRegion, String> mLastUpdateTime;
 	private HashMap<RECOBeaconRegion, Integer> mMatchedBeaconCounts;
-	private ArrayList<RECOBeaconRegion> mMonitoredRegionLists;
+	protected ArrayList<RECOBeaconRegion> mMonitoredRegionLists;
 
     Context mcontext;
     String recoRegionUniqueID;

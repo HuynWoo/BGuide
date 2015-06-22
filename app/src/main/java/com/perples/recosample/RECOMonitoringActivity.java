@@ -28,6 +28,8 @@ import android.os.RemoteException;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -52,7 +54,7 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 	private long mSleepPeriod = 1*1000L;	   // 1초 스캔, 10초 간격으로 스캔, 60초의 region expiration time은 당사 권장사항입니다.
 
     private TextToSpeech myTTS;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {		
 		super.onCreate(savedInstanceState);
@@ -78,7 +80,14 @@ public class RECOMonitoringActivity extends RECOActivity implements RECOMonitori
 		
 		mMonitoringListAdapter = new RECOMonitoringListAdapter(this);
 		mRegionListView = (ListView)findViewById(R.id.list_monitoring);
-		mRegionListView.setAdapter(mMonitoringListAdapter);
+		mRegionListView.setAdapter(mMonitoringListAdapter);		// ListView에 Adapter 연결
+
+		mRegionListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+				Toast.makeText(RECOMonitoringActivity.this, mMonitoringListAdapter.mMonitoredRegionLists.get(position).getUniqueIdentifier(), Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 
 	@Override
